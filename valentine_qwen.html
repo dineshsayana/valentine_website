@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .heart {
+      font-size: 5rem;
+      color: #ff4757;
+      animation: beat 1.5s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e74c3c;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .response {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #ff4757;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="valentineName">Happy Valentine's Day!</h1>
+    <p>Will you be my Valentine? 💕 Let's make this day unforgettable together.</p>
+    <div class="heart">❤️</div>
+    <img src="https://images.unsplash.com/photo-1582268611958-ebfd16e45f10?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Valentine's Day">
+    <p>Solve this simple addition to show your answer:</p>
+    <p><strong>What is 5 + 3?</strong></p>
+    <input type="number" id="answerInput" placeholder="Your answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <div class="response" id="response"></div>
+  </div>
+
+  <script>
+    // Dynamic variable for the Valentine's name
+    const urlParams = new URLSearchParams(window.location.search);
+    const valentineName = urlParams.get('name') || "My Love"; // Default to "My Love" if no name provided
+
+    // Update the heading with the dynamic name
+    document.getElementById('valentineName').textContent = `Happy Valentine's Day, ${valentineName}!`;
+
+    function checkAnswer() {
+      const correctAnswer = 8;
+      const userAnswer = parseInt(document.getElementById('answerInput').value);
+      const responseDiv = document.getElementById('response');
+
+      if (userAnswer === correctAnswer) {
+        responseDiv.textContent = "Thank you for saying YES! 💖";
+        responseDiv.style.color = "#2ecc71";
+      } else {
+        responseDiv.textContent = "Oops! Try again!";
+        responseDiv.style.color = "#e74c3c";
+      }
+    }
+  </script>
+</body>
+</html>
