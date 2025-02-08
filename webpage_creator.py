@@ -4,6 +4,10 @@ import qrcode
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 
+
+# Default message
+default_message = "From the moment you entered my life, you've painted my world with colors I never knew existed. Your smile brightens my darkest days, and your love makes my heart dance with joy. Every moment spent with you feels like a beautiful dream I never want to wake up from."
+
 # Function to generate a QR code with a love theme
 def generate_love_qr(data):
     # Generate QR Code
@@ -36,7 +40,7 @@ st.write("Create a personalized message for your loved one :two_hearts:")
 with st.form(key='valentine_form'):
     your_name = st.text_input("Your Name")
     valentine_name = st.text_input("Valentine's Name")
-    message = st.text_area("Message")
+    message = st.text_area("Message", value=default_message)
     your_email = st.text_input("Your Email")
     submit_button = st.form_submit_button(label='Create Valentine Website')
 
