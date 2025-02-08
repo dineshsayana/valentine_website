@@ -24,7 +24,7 @@ def generate_love_qr(data):
     qr_img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
 
     # Add Valentine-themed overlay (e.g., heart)
-    heart = Image.open('/Users/dineshsayana/Code-Challenges/heart.png').resize((50, 50))  # Make sure to have a heart.png file
+    heart = Image.open('heart.png').resize((100, 100))  # Make sure to have a heart.png file
     pos = ((qr_img.size[0] - heart.size[0]) // 2, (qr_img.size[1] - heart.size[1]) // 2)
     qr_img.paste(heart, pos, heart)
 
@@ -35,7 +35,7 @@ def generate_love_qr(data):
 
 # Streamlit app
 st.title("Valentine's Day Website Creator :heart:")
-st.write("Create a personalized message for your loved one :two_hearts:")
+st.write("Create a personalized webpage for your loved one :two_hearts:")
 
 with st.form(key='valentine_form'):
     your_name = st.text_input("Your Name")
@@ -59,6 +59,7 @@ if submit_button:
 
         # Display results
         st.success("Valentine's Day website created successfully!")
+        st.write("share it will loved ones and make them feel special")
         st.write("**Shortened URL:**", short_url)
 
         # Display QR code
