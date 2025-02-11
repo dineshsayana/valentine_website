@@ -274,7 +274,7 @@
 
         function acceptValentine() {
             const valentineName = getUrlParameter('name') || 'Valentine';
-            const recipientEmail = getUrlParameter('email');
+            const recipientEmail = getUrlParameter('your_email');
             const response = document.getElementById('response');
             response.textContent = `✨ Thank you, ${valentineName}! You've made this Valentine's Day truly magical! ✨`;
             response.className = 'response show happy';
